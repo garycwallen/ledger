@@ -19,6 +19,7 @@ export const transcationRouter = createTRPCRouter({
       };
     }),
 
+  // Create New Transcation
   create: protectedProcedure
     .input(z.object({ name: z.string().min(1) }))
     .mutation(async ({ ctx, input }) => {
@@ -27,13 +28,14 @@ export const transcationRouter = createTRPCRouter({
 
       return ctx.db.transcation.create({
         data: {
-          type: input.type,
+          type: input.amount,
           location: input.location,
           createdBy: { connect: { id: ctx.session.user.id } },
         },
       });
     }),
 
+  // Get Latest Transcation
   getLatest: protectedProcedure.query(({ ctx }) => {
     return ctx.db.transcation.findFirst({
       orderBy: { createdAt: "desc" },
