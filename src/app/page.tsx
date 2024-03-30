@@ -34,7 +34,6 @@ export default async function Home() {
         </div>
 
         <CrudShowcase />
-        <CreateTranscation />
       </div>
     </main>
   );
@@ -55,6 +54,7 @@ async function CrudShowcase() {
       )}
 
       <CreatePost />
+      <CreateTranscation />
     </div>
   );
 }
