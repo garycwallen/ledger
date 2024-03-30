@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 import { CreatePost } from "@/app/_components/create-post";
+import { CreateTranscation } from "@/app/_components/create-transcation";
 import { getServerAuthSession } from "@/server/auth";
 import { api } from "@/trpc/server";
 
@@ -57,6 +58,7 @@ export default async function Home() {
         </div>
 
         <CrudShowcase />
+        <CreateTranscation />
       </div>
     </main>
   );
