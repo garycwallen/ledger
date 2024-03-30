@@ -7,6 +7,7 @@
   - User Image
   - User Name
   - Signout
+1. Add validation on amount to only be a number
 1. [UI] Add Transactions
   - Expense or Income (Default to Income)
   - Amount
