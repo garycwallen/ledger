@@ -22,7 +22,9 @@ export function CreateTranscation() {
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        createTransaction.mutate({ name });
+        createTransaction.mutate({
+          name: "",
+        });
       }}
       className="flex flex-col gap-2"
     >
