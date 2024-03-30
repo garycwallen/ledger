@@ -1,5 +1,5 @@
-1. Setup mongodb database
-1. Setup mongodb prisma
-    - Define Schema
-1. Setup Google auth with NextAuth
+1. ~~Setup MongoDB database~~
+1. ~~Setup MongoDB prisma~~
+1. ~~Setup Google auth with NextAuth~~
+1. Define MongoDB Schema
 1. 
