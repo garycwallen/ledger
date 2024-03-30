@@ -25,21 +25,22 @@ export function CreateTranscation() {
       onSubmit={(e) => {
         e.preventDefault();
         createTransaction.mutate({
-          type: "Test",
+          type,
           amount: 0,
-          location: "",
+          location,
         });
       }}
       className="flex flex-col gap-2"
     >
-      <input
-        type="text"
-        placeholder="Type"
-        value={type}
+      <select
+        name="type"
         required
         onChange={(e) => setType(e.target.value)}
         className="w-full rounded-full px-4 py-2 text-black"
-      />{" "}
+      >
+        <option value="Expense">Expense</option>
+        <option value="Income">Income</option>
+      </select>
       <input
         type="number"
         placeholder="Amount"
