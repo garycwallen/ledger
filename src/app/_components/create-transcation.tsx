@@ -26,6 +26,8 @@ export function CreateTranscation() {
         e.preventDefault();
         createTransaction.mutate({
           type: "Test",
+          amount: 0,
+          location: "",
         });
       }}
       className="flex flex-col gap-2"
