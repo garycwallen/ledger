@@ -10,8 +10,7 @@
     - [x]User Image
     - [x]User Name
     - Signout
-1. Add validation on amount to only be a number
-1. Correct TypeScript errors
+1. [x] Add validation on amount to only be a number
 1. Allow for shared "ledgers"
 1. [UI] Add Transactions
     - Expense or Income (Default to Income)
