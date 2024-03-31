@@ -11,7 +11,7 @@ export default async function Home() {
   return (
     <>
       <Navbar />
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
+      <main className="flex min-h-screen flex-col items-center justify-center text-white">
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
           <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
             Family <span className="text-[hsl(280,100%,70%)]">Ledger</span>
@@ -42,12 +42,20 @@ async function CrudShowcase() {
 
   const latestTranscation = await api.transcation.getLatest();
 
+  const purchase =
+    // @ts-expect-error: Object is possibly 'null'.
+    latestTranscation.type +
+    " $" +
+    // @ts-expect-error: Object is possibly 'null'.
+    latestTranscation.amount +
+    " at " +
+    // @ts-expect-error: Object is possibly 'null'.
+    latestTranscation.location;
+
   return (
     <div className="w-full max-w-xs">
       {latestTranscation ? (
-        <p className="truncate">
-          Your most recent purchase: {latestTranscation.location}
-        </p>
+        <p>Most recent transcation: {purchase}</p>
       ) : (
         <p>You have no expenses yet.</p>
       )}
