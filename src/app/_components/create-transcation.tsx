@@ -26,7 +26,7 @@ export function CreateTranscation() {
         e.preventDefault();
         createTransaction.mutate({
           type,
-          amount: 0,
+          amount,
           location,
         });
       }}
@@ -37,8 +37,10 @@ export function CreateTranscation() {
         required
         onChange={(e) => setType(e.target.value)}
         className="w-full rounded-full px-4 py-2 text-black"
+        defaultValue="Expense"
       >
         <option value="Expense">Expense</option>
+        console.log(type);
         <option value="Income">Income</option>
       </select>
       <input
