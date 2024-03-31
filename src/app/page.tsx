@@ -1,12 +1,10 @@
 import Link from "next/link";
 
-import { CreatePost } from "@/app/_components/create-post";
 import { CreateTranscation } from "@/app/_components/create-transcation";
 import { getServerAuthSession } from "@/server/auth";
 import { api } from "@/trpc/server";
 
 export default async function Home() {
-  const hello = await api.post.hello({ text: "from Ledger!" });
   const session = await getServerAuthSession();
 
   return (
@@ -16,9 +14,7 @@ export default async function Home() {
           Family <span className="text-[hsl(280,100%,70%)]">Ledger</span>
         </h1>
         <div className="flex flex-col items-center gap-2">
-          <p className="text-2xl text-white">
-            {hello ? hello.greeting : "Loading..."}
-          </p>
+          <p className="text-2xl text-white"></p>
 
           <div className="flex flex-col items-center justify-center gap-4">
             <p className="text-center text-2xl text-white">
@@ -43,17 +39,18 @@ async function CrudShowcase() {
   const session = await getServerAuthSession();
   if (!session?.user) return null;
 
-  const latestPost = await api.post.getLatest();
+  const latestTranscation = await api.transcation.getLatest();
 
   return (
     <div className="w-full max-w-xs">
-      {latestPost ? (
-        <p className="truncate">Your most recent post: {latestPost.name}</p>
+      {latestTranscation ? (
+        <p className="truncate">
+          Your most recent purchase: {latestTranscation.location}
+        </p>
       ) : (
-        <p>You have no posts yet.</p>
+        <p>You have no expenses yet.</p>
       )}
 
-      <CreatePost />
       <CreateTranscation />
     </div>
   );
