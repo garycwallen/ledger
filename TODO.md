@@ -1,6 +1,6 @@
 ### TODO
-1. [] Define MongoDB Schema
-1. [] Fix `type` on transcations always needing to be selected
+1. [ ] Define MongoDB Schema
+1. [ ] Fix `type` on transcations always needing to be selected
 1. Setup Navbar
     - Logo
     - [x]User Image
