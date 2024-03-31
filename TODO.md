@@ -1,8 +1,4 @@
 ### TODO
-
-1. [x] Setup MongoDB database
-1. [x] Setup MongoDB prisma
-1. [x] Setup Google auth with NextAuth
 1. [] Define MongoDB Schema
 1. [] Fix `type` on transcations always needing to be selected
 1. Setup Navbar
@@ -10,7 +6,6 @@
     - [x]User Image
     - [x]User Name
     - Signout
-1. [x] Add validation on amount to only be a number
 1. Allow for shared "ledgers"
 1. [UI] Add Transactions
     - Expense or Income (Default to Income)
@@ -42,3 +37,9 @@
       - Year over year
     - Pending Transcations
     - Total Balance
+
+### Complete 
+- [x] Setup MongoDB database
+- [x] Setup MongoDB prisma
+- [x] Setup Google auth with NextAuth
+- [x] Add validation on amount to only be a number
