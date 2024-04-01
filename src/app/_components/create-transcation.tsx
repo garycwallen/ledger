@@ -7,7 +7,7 @@ import { api } from "@/trpc/react";
 
 export function CreateTranscation() {
   const router = useRouter();
-  const [type, setType] = useState("");
+  const [type, setType] = useState("Expense");
   const [amount, setAmount] = useState("");
   const [location, setLocation] = useState("");
 
@@ -40,7 +40,6 @@ export function CreateTranscation() {
         defaultValue="Expense"
       >
         <option value="Expense">Expense</option>
-        console.log(type);
         <option value="Income">Income</option>
       </select>
       <input
