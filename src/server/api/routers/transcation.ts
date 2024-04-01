@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 import { z } from "zod";
 import { createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
 
@@ -18,7 +21,14 @@ export const transcationRouter = createTRPCRouter({
       });
     }),
 
-  // Return latest Transcation
+  // Get All Transcations
+  getAll: protectedProcedure.query(({ ctx }) => {
+    return ctx.db.transcation.findMany({
+      orderBy: { createdAt: "desc" },
+    });
+  }),
+
+  // Return Latest Transcation
   getLatest: protectedProcedure.query(({ ctx }) => {
     return ctx.db.transcation.findFirst({
       orderBy: { createdAt: "desc" },
