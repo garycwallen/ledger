@@ -30,6 +30,7 @@ export default async function Home() {
           </div>
 
           <CrudShowcase />
+          <CreateTranscation />
         </div>
       </main>
     </>
@@ -47,7 +48,7 @@ async function CrudShowcase() {
     latestTranscation.type +
     " $" +
     // @ts-expect-error: Object is possibly 'null'.
-    latestTranscation.amount +
+    Number(latestTranscation.amount).toLocaleString() +
     " at " +
     // @ts-expect-error: Object is possibly 'null'.
     latestTranscation.location +
@@ -61,8 +62,6 @@ async function CrudShowcase() {
       ) : (
         <p>You have no expenses yet.</p>
       )}
-
-      <CreateTranscation />
     </div>
   );
 }
