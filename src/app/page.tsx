@@ -50,7 +50,9 @@ async function CrudShowcase() {
     latestTranscation.amount +
     " at " +
     // @ts-expect-error: Object is possibly 'null'.
-    latestTranscation.location;
+    latestTranscation.location +
+    " on " +
+    latestTranscation?.createdAt.toDateString();
 
   return (
     <div className="w-full max-w-xs">

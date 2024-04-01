@@ -1,6 +1,5 @@
 ### TODO
 1. [ ] Define MongoDB Schema
-1. [ ] Fix `type` on transcations always needing to be selected
 1. Setup Navbar
     - Logo
     - [x]User Image
@@ -43,3 +42,4 @@
 - [x] Setup MongoDB prisma
 - [x] Setup Google auth with NextAuth
 - [x] Add validation on amount to only be a number
+- [x] Fix `type` on transcations always needing to be selected
