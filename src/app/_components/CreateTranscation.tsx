@@ -5,7 +5,7 @@ import { useState } from "react";
 
 import { api } from "@/trpc/react";
 
-export function CreateTranscation() {
+export default function CreateTranscation() {
   const router = useRouter();
   const [type, setType] = useState("Expense");
   const [amount, setAmount] = useState("");
