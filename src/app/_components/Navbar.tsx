@@ -15,17 +15,17 @@ export default async function Navbar() {
             <div className="h-[40px] w-[40px] overflow-hidden rounded-full">
               <Image
                 src={
-                  session.user?.image ?? "https://thispersondoesnotexist.com/"
+                  session.user.image ?? "https://thispersondoesnotexist.com/"
                 }
                 width={50}
                 height={50}
-                alt={session.user?.name ?? "User Profile Photo"}
+                alt={session.user.name ?? "User Profile Photo"}
                 className="h-full w-full object-cover"
               />
             </div>
 
             {/* User Greeting */}
-            <small className="text-white">Hi, {session.user?.name}!</small>
+            <small className="text-white">Hi, {session.user.name}!</small>
           </div>
         )}
 

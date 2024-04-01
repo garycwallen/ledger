@@ -8,14 +8,11 @@ export default async function LatestTranscation() {
   const latestTranscation = await api.transcation.getLatest();
 
   const purchase =
-    // @ts-expect-error: Object is possibly 'null'.
-    latestTranscation.type +
+    latestTranscation?.type +
     " $" +
-    // @ts-expect-error: Object is possibly 'null'.
-    Number(latestTranscation.amount).toLocaleString() +
+    Number(latestTranscation?.amount).toLocaleString() +
     " at " +
-    // @ts-expect-error: Object is possibly 'null'.
-    latestTranscation.location +
+    latestTranscation?.location +
     " on " +
     latestTranscation?.createdAt.toDateString();
 
