@@ -19,6 +19,10 @@ export default async function AllTranscations() {
         <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
           All <span className="text-[hsl(280,100%,70%)]">Transcations</span>
         </h1>
+        <section className="py-3">
+          <small className="text-md text-gray-400">Our Balance</small>
+          <h2 className="text-4xl font-bold">TBD</h2>
+        </section>
         <div className="flex flex-col items-center gap-2">
           <div className="flex flex-col items-center justify-center gap-4">
             <div className="relative overflow-x-auto">
@@ -37,15 +41,13 @@ export default async function AllTranscations() {
                     <th scope="col" className="px-6 py-3">
                       Type
                     </th>
+                    <th />
                   </tr>
                 </thead>
                 <tbody>
                   {allTransactions?.map((transcation) => (
                     <>
-                      <tr
-                        className="border-b bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600"
-                        key={transcation.id}
-                      >
+                      <tr className="border-b bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600">
                         <th scope="row" className="whitespace-nowrap px-6 py-4">
                           ${Number(transcation?.amount).toLocaleString()}
                         </th>
@@ -58,6 +60,7 @@ export default async function AllTranscations() {
                         <th scope="row" className="whitespace-nowrap px-6 py-4">
                           {transcation.type}
                         </th>
+                        <th key={transcation.id} />
                       </tr>
                     </>
                   ))}

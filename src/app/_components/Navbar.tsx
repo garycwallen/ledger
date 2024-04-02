@@ -6,6 +6,10 @@ import Link from "next/link";
 export default async function Navbar() {
   const session = await getServerAuthSession();
 
+  // Show only first name
+  const fullName = session?.user.name;
+  const firstName = fullName?.split(" ")[0];
+
   return (
     <header className="container mx-auto max-w-2xl px-6 py-6">
       <div className="flex items-center justify-between">
@@ -26,7 +30,7 @@ export default async function Navbar() {
             </div>
 
             {/* User Name */}
-            <small>Hi, {session.user.name}!</small>
+            <small>Hi, {firstName}!</small>
           </div>
         )}
         {/* Sign-out Button */}
