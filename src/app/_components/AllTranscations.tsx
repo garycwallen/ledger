@@ -21,14 +21,49 @@ export default async function AllTranscations() {
         </h1>
         <div className="flex flex-col items-center gap-2">
           <div className="flex flex-col items-center justify-center gap-4">
-            <ul className="list-disc">
-              {allTransactions?.map((transcation) => (
-                <li key={transcation.id}>
-                  {transcation.type} {transcation.amount} {transcation.location}{" "}
-                  {transcation.createdAt.toLocaleDateString()}
-                </li>
-              ))}
-            </ul>
+            <div className="relative overflow-x-auto">
+              <table className="w-full text-left rtl:text-right">
+                <thead className="bg-white/10 px-10 py-3 font-semibold no-underline transition">
+                  <tr>
+                    <th scope="col" className="px-6 py-3">
+                      Amount
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      Location
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      Date
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                      Type
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {allTransactions?.map((transcation) => (
+                    <>
+                      <tr
+                        className="border-b bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600"
+                        key={transcation.id}
+                      >
+                        <th scope="row" className="whitespace-nowrap px-6 py-4">
+                          ${Number(transcation?.amount).toLocaleString()}
+                        </th>
+                        <th scope="row" className="whitespace-nowrap px-6 py-4">
+                          {transcation.location}
+                        </th>
+                        <th scope="row" className="whitespace-nowrap px-6 py-4">
+                          {transcation.createdAt.toLocaleDateString()}
+                        </th>
+                        <th scope="row" className="whitespace-nowrap px-6 py-4">
+                          {transcation.type}
+                        </th>
+                      </tr>
+                    </>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
