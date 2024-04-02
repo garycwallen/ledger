@@ -14,7 +14,7 @@ export default async function LatestTranscation() {
     " at " +
     latestTranscation?.location +
     " on " +
-    latestTranscation?.createdAt.toDateString();
+    latestTranscation?.createdAt.toLocaleDateString();
 
   return (
     <div className="w-full max-w-xs">

@@ -25,7 +25,7 @@ export default async function AllTranscations() {
               {allTransactions?.map((transcation) => (
                 <li key={transcation.id}>
                   {transcation.type} {transcation.amount} {transcation.location}{" "}
-                  {transcation.createdAt.toDateString()}
+                  {transcation.createdAt.toLocaleDateString()}
                 </li>
               ))}
             </ul>
