@@ -58,7 +58,15 @@ export default async function AllTranscations() {
                           {transcation.createdAt.toLocaleDateString()}
                         </th>
                         <th scope="row" className="whitespace-nowrap px-6 py-4">
-                          {transcation.type}
+                          {transcation.type === "Expense" ? (
+                            <span className="text-rose-200">
+                              {transcation.type}
+                            </span>
+                          ) : (
+                            <span className="text-emerald-200">
+                              {transcation.type}
+                            </span>
+                          )}
                         </th>
                         <th key={transcation.id} />
                       </tr>
