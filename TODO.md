@@ -1,10 +1,5 @@
 ### TODO
 1. [ ] Define MongoDB Schema
-1. Setup Navbar
-    - Logo
-    - [x]User Image
-    - [x]User Name
-    - Signout
 1. Allow for shared "ledgers"
 1. [UI] Add Transactions
     - Expense or Income (Default to Income)
@@ -43,3 +38,8 @@
 - [x] Setup Google auth with NextAuth
 - [x] Add validation on amount to only be a number
 - [x] Fix `type` on transcations always needing to be selected
+1. [x] Setup Navbar
+    - ~~Logo~~
+    - [x]User Image
+    - [x]User Name
+    - [x] Signout

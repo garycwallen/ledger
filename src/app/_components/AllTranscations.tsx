@@ -1,6 +1,5 @@
 import { getServerAuthSession } from "@/server/auth";
 import { api } from "@/trpc/server";
-import Link from "next/link";
 
 export default async function AllTranscations() {
   const session = await getServerAuthSession();
@@ -8,67 +7,54 @@ export default async function AllTranscations() {
 
   const allTransactions = await api.transcation.getAll();
   return (
-    <main className="flex min-h-screen flex-col items-center text-white">
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-        <Link
-          href="/"
-          className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"
-        >
-          Back Home
-        </Link>
-        <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">
-          All <span className="text-[hsl(280,100%,70%)]">Transcations</span>
-        </h1>
-        <section className="py-3">
-          <small className="text-md text-gray-400">Our Balance</small>
-          <h2 className="text-4xl font-bold">TBD</h2>
-        </section>
-        <div className="flex flex-col items-center gap-2">
-          <div className="flex flex-col items-center justify-center gap-4">
-            <div className="relative overflow-x-auto">
-              <table className="w-full text-left rtl:text-right">
-                <thead className="bg-white/10 px-10 py-3 font-semibold no-underline transition">
+    <section className="px-4 text-gray-600 antialiased">
+      <div className="flex h-full flex-col justify-center">
+        <div className="mx-auto w-full max-w-2xl rounded-lg border border-gray-200 bg-white shadow-lg">
+          <header className="border-b border-gray-100 px-5 py-4">
+            <h2 className="font-semibold text-gray-800">All Transcations</h2>
+          </header>
+          <div className="p-3">
+            <div className="overflow-x-auto border">
+              <table className="w-full table-auto">
+                <thead className="bg-gray-200 text-xs font-semibold uppercase text-gray-400">
                   <tr>
-                    <th scope="col" className="px-6 py-3">
-                      Amount
+                    <th className="whitespace-nowrap p-2">
+                      <div className="text-left font-semibold">Amount</div>
                     </th>
-                    <th scope="col" className="px-6 py-3">
-                      Location
+                    <th className="whitespace-nowrap p-2">
+                      <div className="text-left font-semibold">Location</div>
                     </th>
-                    <th scope="col" className="px-6 py-3">
-                      Date
+                    <th className="whitespace-nowrap p-2">
+                      <div className="text-left font-semibold">Date</div>
                     </th>
-                    <th scope="col" className="px-6 py-3">
-                      Type
-                    </th>
-                    <th />
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="divide-y divide-gray-100 text-sm">
                   {allTransactions?.map((transcation) => (
                     <>
-                      <tr className="border-b bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600">
-                        <th scope="row" className="whitespace-nowrap px-6 py-4">
-                          ${Number(transcation?.amount).toLocaleString()}
-                        </th>
-                        <th scope="row" className="whitespace-nowrap px-6 py-4">
-                          {transcation.location}
-                        </th>
-                        <th scope="row" className="whitespace-nowrap px-6 py-4">
-                          {transcation.createdAt.toLocaleDateString()}
-                        </th>
-                        <th scope="row" className="whitespace-nowrap px-6 py-4">
+                      <tr
+                        key={transcation.id}
+                        className="hover:bg-gray-100 dark:hover:bg-gray-200"
+                      >
+                        <td className="whitespace-nowrap p-2">
                           {transcation.type === "Expense" ? (
-                            <span className="text-rose-200">
-                              {transcation.type}
-                            </span>
+                            <div className="text-left font-medium text-red-500">
+                              {"-"}$
+                              {Number(transcation?.amount).toLocaleString()}
+                            </div>
                           ) : (
-                            <span className="text-emerald-200">
-                              {transcation.type}
-                            </span>
+                            <div className="text-left font-medium text-green-500">
+                              {"+"}$
+                              {Number(transcation?.amount).toLocaleString()}
+                            </div>
                           )}
-                        </th>
-                        <th key={transcation.id} />
+                        </td>
+                        <td className="whitespace-nowrap p-2">
+                          {transcation.location}
+                        </td>
+                        <td className="whitespace-nowrap p-2">
+                          {transcation.createdAt.toLocaleDateString()}
+                        </td>
                       </tr>
                     </>
                   ))}
@@ -78,6 +64,6 @@ export default async function AllTranscations() {
           </div>
         </div>
       </div>
-    </main>
+    </section>
   );
 }

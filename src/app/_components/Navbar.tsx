@@ -1,7 +1,6 @@
 import Image from "next/image";
-
-import { getServerAuthSession } from "@/server/auth";
 import Link from "next/link";
+import { getServerAuthSession } from "@/server/auth";
 
 export default async function Navbar() {
   const session = await getServerAuthSession();
@@ -11,7 +10,7 @@ export default async function Navbar() {
   const firstName = fullName?.split(" ")[0];
 
   return (
-    <header className="container mx-auto max-w-2xl px-6 py-6">
+    <nav className="container mx-auto max-w-2xl px-6 py-6">
       <div className="flex items-center justify-between">
         {/* User Session Information */}
         {session && (
@@ -47,6 +46,6 @@ export default async function Navbar() {
           </nav>
         )}
       </div>
-    </header>
+    </nav>
   );
 }
