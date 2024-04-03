@@ -14,7 +14,7 @@ export default function CreateTranscation() {
   const createTransaction = api.transcation.create.useMutation({
     onSuccess: () => {
       router.refresh();
-      setType("");
+      setType("Expense");
       setAmount("");
       setLocation("");
     },
