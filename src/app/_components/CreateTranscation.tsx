@@ -8,14 +8,14 @@ import { api } from "@/trpc/react";
 export default function CreateTranscation() {
   const router = useRouter();
   const [type, setType] = useState("Expense");
-  const [amount, setAmount] = useState("");
+  const [amount, setAmount] = useState(0);
   const [location, setLocation] = useState("");
 
   const createTransaction = api.transcation.create.useMutation({
     onSuccess: () => {
       router.refresh();
       setType("Expense");
-      setAmount("");
+      setAmount(0);
       setLocation("");
     },
   });
@@ -49,7 +49,7 @@ export default function CreateTranscation() {
         min={0.01}
         step={0.01}
         required
-        onChange={(e) => setAmount(e.target.value)}
+        onChange={(e) => setAmount(e.target.valueAsNumber)}
         className="w-full rounded-full px-4 py-2 text-black"
       />{" "}
       <input

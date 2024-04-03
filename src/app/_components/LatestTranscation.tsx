@@ -10,7 +10,7 @@ export default async function LatestTranscation() {
   const purchase =
     latestTranscation?.type +
     " $" +
-    Number(latestTranscation?.amount).toLocaleString() +
+    latestTranscation?.amount +
     " at " +
     latestTranscation?.location +
     " on " +

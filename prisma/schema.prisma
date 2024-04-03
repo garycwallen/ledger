@@ -10,7 +10,7 @@ generator client {
 model Transcation {
     id          String  @id @default(auto()) @map("_id") @db.ObjectId
     type        String  @default("Expense")
-    amount      String
+    amount      Float
     location    String
     createdAt   DateTime @default(now())
     updatedAt   DateTime @updatedAt

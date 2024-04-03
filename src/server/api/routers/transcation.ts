@@ -8,7 +8,7 @@ export const transcationRouter = createTRPCRouter({
   // Create new Transcation
   create: protectedProcedure
     .input(z.object({ type: z.string() }))
-    .input(z.object({ amount: z.string() }))
+    .input(z.object({ amount: z.coerce.number() }))
     .input(z.object({ location: z.string() }))
     .mutation(async ({ ctx, input }) => {
       return ctx.db.transcation.create({

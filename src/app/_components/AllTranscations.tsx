@@ -7,7 +7,7 @@ export default async function AllTranscations() {
 
   const allTransactions = await api.transcation.getAll();
   return (
-    <section className="px-4 text-gray-600 antialiased">
+    <section className="min-h-screen px-4 text-gray-600 antialiased">
       <div className="flex h-full flex-col justify-center">
         <div className="mx-auto w-full max-w-2xl rounded-lg border border-gray-200 bg-white shadow-lg">
           <header className="border-b border-gray-100 px-5 py-4">
@@ -39,13 +39,11 @@ export default async function AllTranscations() {
                         <td className="whitespace-nowrap p-2">
                           {transcation.type === "Expense" ? (
                             <div className="text-left font-medium text-red-500">
-                              {"-"}$
-                              {Number(transcation?.amount).toLocaleString()}
+                              {"-"}${transcation?.amount}
                             </div>
                           ) : (
                             <div className="text-left font-medium text-green-500">
-                              {"+"}$
-                              {Number(transcation?.amount).toLocaleString()}
+                              {"+"}${transcation?.amount}
                             </div>
                           )}
                         </td>
