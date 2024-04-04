@@ -1,5 +1,6 @@
 import { getServerAuthSession } from "@/server/auth";
 import { api } from "@/trpc/server";
+import { currencyFormatter } from "@/lib/utils";
 
 export default async function AllTranscations() {
   const session = await getServerAuthSession();
@@ -39,11 +40,11 @@ export default async function AllTranscations() {
                         <td className="whitespace-nowrap p-2">
                           {transcation.type === "Expense" ? (
                             <div className="text-left font-medium text-red-500">
-                              {"-"}${transcation?.amount}
+                              {currencyFormatter(transcation.amount)}
                             </div>
                           ) : (
                             <div className="text-left font-medium text-green-500">
-                              {"+"}${transcation?.amount}
+                              {currencyFormatter(transcation.amount)}
                             </div>
                           )}
                         </td>
