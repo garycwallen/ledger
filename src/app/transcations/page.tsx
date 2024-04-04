@@ -20,7 +20,9 @@ export default function TranscationsPage() {
           <small className="text-md justify-center text-gray-400">
             Our Balance
           </small>
-          <TotalBalance />
+          <h2 className="text-4xl font-bold">
+            <TotalBalance />
+          </h2>
         </div>
       </main>
       {/* Table of All Transcation */}

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { getServerAuthSession } from "@/server/auth";
 import CreateTranscation from "@/app/_components/CreateTranscation";
 import LatestTranscation from "@/app/_components/LatestTranscation";
+import TotalBalance from "./_components/TotalBalance";
 
 export default async function Home() {
   const session = await getServerAuthSession();
@@ -18,6 +19,12 @@ export default async function Home() {
             <div className="flex flex-col items-center justify-center gap-4">
               {session ? (
                 <>
+                  <small className="text-md justify-center text-gray-400">
+                    Our Balance
+                  </small>
+                  <h2 className="text-4xl font-bold">
+                    <TotalBalance />
+                  </h2>
                   <Link
                     href="/transcations"
                     className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"

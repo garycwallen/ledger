@@ -21,9 +21,5 @@ export default async function TotalBalance() {
     0,
   );
 
-  return (
-    <h2 className="text-4xl font-bold">
-      {currencyFormatter(sumTotalIncome - sumTotalExpense)}
-    </h2>
-  );
+  return <>{currencyFormatter(sumTotalIncome - sumTotalExpense)}</>;
 }
