@@ -49,9 +49,10 @@ export default function CreateTranscation() {
         min={0.01}
         step={0.01}
         required
+        onFocus={(e) => (e.target.value = "")}
         onChange={(e) => setAmount(e.target.valueAsNumber)}
         className="w-full rounded-full px-4 py-2 text-black"
-      />{" "}
+      />
       <input
         type="text"
         placeholder="Location"
