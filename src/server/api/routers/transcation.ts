@@ -28,6 +28,20 @@ export const transcationRouter = createTRPCRouter({
     });
   }),
 
+  // Get All Expense
+  getTotalExpense: protectedProcedure.query(({ ctx }) => {
+    return ctx.db.transcation.findMany({
+      where: { type: "Expense" },
+    });
+  }),
+
+  // Get All Income
+  getTotalIncome: protectedProcedure.query(({ ctx }) => {
+    return ctx.db.transcation.findMany({
+      where: { type: "Income" },
+    });
+  }),
+
   // Return Latest Transcation
   getLatest: protectedProcedure.query(({ ctx }) => {
     return ctx.db.transcation.findFirst({
