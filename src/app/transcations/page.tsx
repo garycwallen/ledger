@@ -17,12 +17,7 @@ export default function TranscationsPage() {
             All <span className="text-[hsl(280,100%,70%)]">Transcations</span>
           </h1>
           {/* Our Balance + SUM section */}
-          <small className="text-md justify-center text-gray-400">
-            Our Balance
-          </small>
-          <h2 className="text-4xl font-bold">
-            <TotalBalance />
-          </h2>
+          <TotalBalance />
         </div>
       </main>
       {/* Table of All Transcation */}
