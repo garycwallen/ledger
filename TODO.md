@@ -1,4 +1,6 @@
 ### TODO
+1. [ ] Re-enable strictness
+    - Solve the Avatar img/string issue
 1. [ ] Fix scrolling on all transcations page
 1. [ ] Define MongoDB Schema
 1. Allow for shared "ledgers"
