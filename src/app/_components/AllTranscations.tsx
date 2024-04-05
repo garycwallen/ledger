@@ -30,34 +30,32 @@ export default async function AllTranscations() {
                     </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-gray-100 text-sm">
-                  {allTransactions?.map((transcation) => (
-                    <>
-                      <tr
-                        key={transcation.id}
-                        className="hover:bg-gray-100 dark:hover:bg-gray-200"
-                      >
-                        <td className="whitespace-nowrap p-2">
-                          {transcation.type === "Expense" ? (
-                            <div className="text-left font-medium text-red-500">
-                              {currencyFormatter(transcation.amount)}
-                            </div>
-                          ) : (
-                            <div className="text-left font-medium text-green-500">
-                              {currencyFormatter(transcation.amount)}
-                            </div>
-                          )}
-                        </td>
-                        <td className="whitespace-nowrap p-2">
-                          {transcation.location}
-                        </td>
-                        <td className="whitespace-nowrap p-2">
-                          {transcation.createdAt.toLocaleDateString()}
-                        </td>
-                      </tr>
-                    </>
-                  ))}
-                </tbody>
+                {allTransactions?.map((transcation) => (
+                  <tbody
+                    className="divide-y divide-gray-100 text-sm"
+                    key={transcation.id}
+                  >
+                    <tr className="hover:bg-gray-100 dark:hover:bg-gray-200">
+                      <td className="whitespace-nowrap p-2">
+                        {transcation.type === "Expense" ? (
+                          <div className="text-left font-medium text-red-500">
+                            {currencyFormatter(transcation.amount)}
+                          </div>
+                        ) : (
+                          <div className="text-left font-medium text-green-500">
+                            {currencyFormatter(transcation.amount)}
+                          </div>
+                        )}
+                      </td>
+                      <td className="whitespace-nowrap p-2">
+                        {transcation.location}
+                      </td>
+                      <td className="whitespace-nowrap p-2">
+                        {transcation.createdAt.toLocaleDateString()}
+                      </td>
+                    </tr>
+                  </tbody>
+                ))}
               </table>
             </div>
           </div>

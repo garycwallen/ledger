@@ -1,21 +1,22 @@
 ### TODO
+1. [ ] Fix scrolling on all transcations page
 1. [ ] Define MongoDB Schema
 1. Allow for shared "ledgers"
 1. [UI] Add Transactions
-    - Expense or Income (Default to Income)
-    - Amount
-    - Location
-    - Date (Optional, current is default, but allow for future planning)
+    - [x] Expense or Income (Default to Expense)
+    - [x] Amount
+    - [x] Location
+    - [x] Date (Optional, current is default, but allow for future planning)
     - Note (Optional)
     - Should be editable
     - Should be deleteable (Soft delete, with confirmation)
 1. [Backend] Add Transcations
-    - Type (Income/Expense)
-    - Amount ($123.45)
-    - Location (Target)
-    - Date (Datetime)
+    - [x] Type (Income/Expense)
+    - [x] Amount ($123.45)
+    - [x] Location (Target)
+    - [x] Date (Datetime)
     - Note (Text/String)
-    - User
+    - [x] User
 - [UI] Features
     - Daily/Weekly/Monthly Recap
       - Locations & Income/Expense
@@ -30,7 +31,7 @@
       - Month over month
       - Year over year
     - Pending Transcations
-    - Total Balance
+    - [x] Total Balance
 
 ### Complete 
 - [x] Setup MongoDB database
