@@ -2,14 +2,17 @@
 
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import DatePicker from "react-datepicker";
 
 import { api } from "@/trpc/react";
+import "react-datepicker/dist/react-datepicker.css";
 
 export default function CreateTranscation() {
   const router = useRouter();
   const [type, setType] = useState("Expense");
   const [amount, setAmount] = useState(0);
   const [location, setLocation] = useState("");
+  const [createdAt, setCreatedAt] = useState(new Date());
 
   const createTransaction = api.transcation.create.useMutation({
     onSuccess: () => {
@@ -17,6 +20,7 @@ export default function CreateTranscation() {
       setType("Expense");
       setAmount(0);
       setLocation("");
+      setCreatedAt(new Date());
     },
   });
 
@@ -28,6 +32,7 @@ export default function CreateTranscation() {
           type,
           amount,
           location,
+          createdAt,
         });
       }}
       className="flex flex-col gap-2"
@@ -58,6 +63,11 @@ export default function CreateTranscation() {
         placeholder="Location"
         value={location}
         onChange={(e) => setLocation(e.target.value)}
+        className="w-full rounded-full px-4 py-2 text-black"
+      />
+      <DatePicker
+        selected={createdAt}
+        onChange={(createdAt: Date) => setCreatedAt(createdAt)}
         className="w-full rounded-full px-4 py-2 text-black"
       />
       <button
