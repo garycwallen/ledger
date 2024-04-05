@@ -45,8 +45,7 @@ export const transcationRouter = createTRPCRouter({
   // Return Latest Transcation
   getLatest: protectedProcedure.query(({ ctx }) => {
     return ctx.db.transcation.findFirst({
-      orderBy: { createdAt: "desc" },
-      where: { createdBy: { id: ctx.session.user.id } },
+      orderBy: { id: "desc" },
     });
   }),
 
