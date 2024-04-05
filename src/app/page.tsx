@@ -8,12 +8,7 @@ export default async function Test() {
   const session = await getServerAuthSession();
   return (
     <main className="container mx-auto max-w-2xl px-6">
-      <section>
-        <small className="text-md text-gray-400">Our Balance</small>
-        <h2 className="text-4xl font-bold">
-          <TotalBalance />
-        </h2>
-      </section>
+      <TotalBalance />
 
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
         <h1 className="text-5xl font-extrabold tracking-tight sm:text-[5rem]">

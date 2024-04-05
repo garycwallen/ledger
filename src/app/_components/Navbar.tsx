@@ -17,15 +17,17 @@ export default async function Navbar() {
           <div className="flex items-center gap-2">
             {/* User Image */}
             <div className="h-[40px] w-[40px] overflow-hidden rounded-full">
-              <Image
-                src={
-                  session.user.image ?? "https://thispersondoesnotexist.com/"
-                }
-                width={50}
-                height={50}
-                alt={session.user.name ?? "User Profile Photo"}
-                className="h-full w-full object-cover"
-              />
+              <Link href="/">
+                <Image
+                  src={
+                    session.user.image ?? "https://thispersondoesnotexist.com/"
+                  }
+                  width={50}
+                  height={50}
+                  alt={session.user.name ?? "User Profile Photo"}
+                  className="h-full w-full object-cover"
+                />
+              </Link>
             </div>
 
             {/* User Name */}
