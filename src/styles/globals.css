@@ -4,10 +4,10 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    @apply h-full;
   }
 
   body {
-    @apply relative text-white bg-gradient-to-b from-[#2e026d] to-[#15162c];
+    @apply text-white bg-gradient-to-b from-[#2e026d] to-[#15162c] relative;
   }
 }

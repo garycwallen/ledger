@@ -10,7 +10,7 @@ export default async function Navbar() {
   const firstName = fullName?.split(" ")[0];
 
   return (
-    <nav className="container mx-auto max-w-2xl px-6 py-6">
+    <header className="container mx-auto max-w-2xl px-6 py-6">
       <div className="flex items-center justify-between">
         {/* User Session Information */}
         {session && (
@@ -46,6 +46,6 @@ export default async function Navbar() {
           </nav>
         )}
       </div>
-    </nav>
+    </header>
   );
 }
