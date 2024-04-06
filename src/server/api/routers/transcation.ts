@@ -20,25 +20,10 @@ export const transcationRouter = createTRPCRouter({
       });
     }),
 
-  // TODO: Reduce amount of get to a single for all/expense/income
   // Get All Transcations
   getAll: protectedProcedure.query(({ ctx }) => {
     return ctx.db.transcation.findMany({
       orderBy: { createdAt: "desc" },
-    });
-  }),
-
-  // Get All Expense
-  getTotalExpense: protectedProcedure.query(({ ctx }) => {
-    return ctx.db.transcation.findMany({
-      where: { type: "Expense" },
-    });
-  }),
-
-  // Get All Income
-  getTotalIncome: protectedProcedure.query(({ ctx }) => {
-    return ctx.db.transcation.findMany({
-      where: { type: "Income" },
     });
   }),
 
