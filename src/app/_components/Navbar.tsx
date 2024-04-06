@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getServerAuthSession } from "@/server/auth";
-import UserDropdown from "./UserDropdown";
+import UserDropdown from "@/app/_components/UserDropdown";
 
 export default async function Navbar() {
   const session = await getServerAuthSession();

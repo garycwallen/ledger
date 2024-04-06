@@ -1,5 +1,5 @@
-import AllTranscations from "../_components/AllTranscations";
-import TotalBalance from "../_components/TotalBalance";
+import AllTranscations from "@/app/_components/AllTranscations";
+import TotalBalance from "@/app/_components/TotalBalance";
 
 export default function TranscationsPage() {
   return (
@@ -18,7 +18,7 @@ export default function TranscationsPage() {
           <button className="btn btn-primary">New Transcation</button>
         </section>
       </main>
-      {/* Table of All Transcation */}
+      s{/* Table of All Transcation */}
       <AllTranscations />
     </>
   );

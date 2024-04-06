@@ -1,4 +1,3 @@
-import { Link } from "next/link";
 import { Avatar, Dropdown, DropdownHeader, DropdownItem } from "flowbite-react";
 import { getServerAuthSession } from "@/server/auth";
 
