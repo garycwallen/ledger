@@ -8,26 +8,17 @@ export default async function TotalBalance() {
 
   const totals = await api.transcation.getAll();
 
-  // TODO: Reduce to a single statement for Income - Expense
-  const sumTotalExpense = totals.reduce(function (sum, total) {
-    if (total.type === "Expense") {
-      return sum + total.amount;
-    } else {
-      return sum;
-    }
-  }, 0);
-
-  // TODO: Reduce to a single statement for Income - Expense
-  const sumTotalIncome = totals.reduce(function (sum, total) {
+  // TODO: Simplify further
+  const totalBalance = totals.reduce(function (sum, total) {
     if (total.type === "Income") {
       return sum + total.amount;
+    }
+    if (total.type === "Expense") {
+      return sum - total.amount;
     } else {
       return sum;
     }
   }, 0);
-
-  // TODO: Reduce to a single statement for Income - Expense
-  const totalBalance = sumTotalIncome - sumTotalExpense;
 
   return (
     <section>
