@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 import { getServerAuthSession } from "@/server/auth";
 import { api } from "@/trpc/server";
 import { currencyFormatter } from "@/lib/utils";
@@ -18,6 +17,7 @@ export default async function TotalBalance() {
     }
   }, 0);
 
+  // TODO: Reduce to a single statement for Income - Expense
   const sumTotalIncome = totals.reduce(function (sum, total) {
     if (total.type === "Income") {
       return sum + total.amount;
@@ -26,6 +26,7 @@ export default async function TotalBalance() {
     }
   }, 0);
 
+  // TODO: Reduce to a single statement for Income - Expense
   const totalBalance = sumTotalIncome - sumTotalExpense;
 
   return (
