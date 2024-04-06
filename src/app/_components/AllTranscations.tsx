@@ -6,6 +6,8 @@ export default async function AllTranscations() {
   const session = await getServerAuthSession();
   if (!session?.user) return null;
 
+  const transcationscolumns = ["Amount", "Location", "Date"];
+
   const allTransactions = await api.transcation.getAll();
   return (
     <section className="min-h-screen px-4 text-gray-600 antialiased">
@@ -19,15 +21,11 @@ export default async function AllTranscations() {
               <table className="w-full table-auto">
                 <thead className="bg-gray-200 text-xs font-semibold uppercase text-gray-400">
                   <tr>
-                    <th className="whitespace-nowrap p-2">
-                      <div className="text-left font-semibold">Amount</div>
-                    </th>
-                    <th className="whitespace-nowrap p-2">
-                      <div className="text-left font-semibold">Location</div>
-                    </th>
-                    <th className="whitespace-nowrap p-2">
-                      <div className="text-left font-semibold">Date</div>
-                    </th>
+                    {transcationscolumns.map((columns) => (
+                      <th className="whitespace-nowrap p-2" key="id">
+                        <div className="text-left font-semibold">{columns}</div>
+                      </th>
+                    ))}
                   </tr>
                 </thead>
                 {allTransactions?.map((transcation) => (
