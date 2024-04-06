@@ -10,4 +10,22 @@
   body {
     @apply text-white bg-gradient-to-b from-[#2e026d] to-[#15162c] relative;
   }
+
+  button {
+    @apply transition-all duration-100 hover:scale-110;
+  }
+}
+
+@layer utilities {
+  .btn {
+    @apply px-10 py-3 text-sm  font-semibold no-underline capitalize rounded-full
+  }
+
+  .btn-primary { 
+    @apply bg-white/10  transition hover:bg-white/20
+  }
+
+  .btn-primary-outline {
+    @apply border-white-400 text-white
+  }
 }

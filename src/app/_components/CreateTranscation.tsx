@@ -61,6 +61,7 @@ export default function CreateTranscation() {
       <input
         type="text"
         placeholder="Location"
+        required
         value={location}
         onChange={(e) => setLocation(e.target.value)}
         className="w-full rounded-full px-4 py-2 text-black"
