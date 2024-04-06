@@ -18,7 +18,7 @@ export default function TranscationsPage() {
           <button className="btn btn-primary">New Transcation</button>
         </section>
       </main>
-      s{/* Table of All Transcation */}
+      {/* Table of All Transcation */}
       <AllTranscations />
     </>
   );
