@@ -24,11 +24,15 @@ export default async function TranscationsTable() {
             key={transcation.id}
           >
             <td className="whitespace-nowrap p-2">
-              <div
-                className={`whitespace-nowrap p-2 text-left font-medium text-${transcation.type === "Expense" ? "red" : "green"}-500`}
-              >
-                {currencyFormatter(transcation.amount)}
-              </div>
+              {transcation.type === "Expense" ? (
+                <div className="text-left font-medium text-red-500">
+                  {currencyFormatter(transcation.amount)}
+                </div>
+              ) : (
+                <div className="text-left font-medium text-green-500">
+                  {currencyFormatter(transcation.amount)}
+                </div>
+              )}
             </td>
             <td className="whitespace-nowrap p-2">{transcation.location}</td>
             <td className="whitespace-nowrap p-2">
