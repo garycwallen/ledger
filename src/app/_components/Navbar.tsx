@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getServerAuthSession } from "@/server/auth";
-import UserAvatar from "@/app/_components/UserDropdown";
+import UserDropdown from "@/app/_components/UserDropdown";
 
 export default async function Navbar() {
   const session = await getServerAuthSession();
@@ -22,7 +22,7 @@ export default async function Navbar() {
         {/* Sign-out Button */}
         {session && (
           <nav className="flex items-center gap-4">
-            <UserAvatar />
+            <UserDropdown />
           </nav>
         )}
       </div>
