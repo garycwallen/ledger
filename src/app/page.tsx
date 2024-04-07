@@ -4,7 +4,7 @@ import LatestTranscation from "@/app/_components/LatestTranscation";
 import TotalBalance from "@/app/_components/TotalBalance";
 import CreateTranscation from "@/app/_components/CreateTranscation";
 
-export default async function Test() {
+export default async function Home() {
   const session = await getServerAuthSession();
   return (
     <main className="container mx-auto max-w-2xl px-6">

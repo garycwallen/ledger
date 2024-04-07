@@ -18,25 +18,19 @@ export default async function TranscationsTable() {
         </tr>
       </thead>
       <tbody className="divide-y divide-gray-100 text-sm">
-        {allTransactions?.map((transcation) => (
+        {allTransactions?.map((transaction) => (
           <tr
             className="hover:bg-gray-100 dark:hover:bg-gray-200"
-            key={transcation.id}
+            key={transaction.id}
           >
-            <td className="whitespace-nowrap p-2">
-              {transcation.type === "Expense" ? (
-                <div className="text-left font-medium text-red-500">
-                  {currencyFormatter(transcation.amount)}
-                </div>
-              ) : (
-                <div className="text-left font-medium text-green-500">
-                  {currencyFormatter(transcation.amount)}
-                </div>
-              )}
+            <td
+              className={`whitespace-nowrap p-2 text-left font-medium text-${transaction.type === "Expense" ? "red" : "green"}-500`}
+            >
+              {currencyFormatter(transaction.amount)}
             </td>
-            <td className="whitespace-nowrap p-2">{transcation.location}</td>
+            <td className="whitespace-nowrap p-2">{transaction.location}</td>
             <td className="whitespace-nowrap p-2">
-              {transcation.createdAt.toLocaleDateString()}
+              {transaction.createdAt.toLocaleDateString()}
             </td>
           </tr>
         ))}

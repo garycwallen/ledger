@@ -12,15 +12,15 @@ export default async function LatestTranscation() {
     <div className="w-full max-w-xs">
       {latestTranscation ? (
         <p>
-          Most recent transcation:{" "}
-          {latestTranscation.type === "Expense" ? (
-            <span className="text-red-500">{latestTranscation?.type}</span>
-          ) : (
-            <span className="text-green-500">{latestTranscation?.type}</span>
-          )}{" "}
-          {currencyFormatter(latestTranscation?.amount)} at{" "}
-          {latestTranscation?.location} on{" "}
-          {latestTranscation?.createdAt.toLocaleDateString()}
+          Most recent transaction:{" "}
+          <span
+            className={`text-${latestTranscation.type === "Expense" ? "red" : "green"}-500`}
+          >
+            {latestTranscation.type}
+          </span>{" "}
+          {currencyFormatter(latestTranscation.amount)} at{" "}
+          {latestTranscation.location} on{" "}
+          {new Date(latestTranscation.createdAt).toLocaleDateString()}
         </p>
       ) : (
         <p>You have no expenses yet.</p>
