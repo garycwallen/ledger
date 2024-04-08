@@ -16,6 +16,17 @@ export default async function Transcation({
     location,
   });
 
+  // Total balance from location
+  const totalBalanceByLocation = transcationsByLocation.reduce((sum, total) => {
+    if (total.type === "Income") {
+      return sum + total.amount;
+    } else if (total.type === "Expense") {
+      return sum - total.amount;
+    } else {
+      return sum;
+    }
+  }, 0);
+
   const transcationscolumns = ["Amount", "Location", "Date"];
 
   return (
@@ -41,7 +52,8 @@ export default async function Transcation({
         <div className="flex h-full flex-col justify-center py-6">
           <div className="mx-auto w-full max-w-2xl rounded-lg border border-gray-200 bg-white py-6 shadow-lg">
             <header className="border-b border-gray-100 px-5">
-              <h2 className="font-semibold text-gray-800">All Transcations</h2>
+              <h2 className="font-semibold text-gray-800">{params.id}{" "} Transcations</h2>
+              <h2 className="gap-2">{currencyFormatter(totalBalanceByLocation)}</h2>
             </header>
             <div className="p-3">
               <div className="overflow-x-auto border">
