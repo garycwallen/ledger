@@ -1,5 +1,6 @@
 import { getServerAuthSession } from "@/server/auth";
 import { api } from "@/trpc/server";
+import CreateShoppingItem from "@/app/_components/CreateShoppingItem";
 
 export default async function ShoppingList() {
   const session = await getServerAuthSession();
@@ -28,6 +29,7 @@ export default async function ShoppingList() {
             </li>
           ))}
         </ul>
+        <CreateShoppingItem />
       </main>
     </>
   );

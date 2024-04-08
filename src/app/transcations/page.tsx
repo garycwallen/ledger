@@ -1,5 +1,6 @@
 import AllTranscations from "@/app/_components/AllTranscations";
 import TotalBalance from "@/app/_components/TotalBalance";
+import Link from "next/link";
 
 export default function TranscationsPage() {
   return (
@@ -13,7 +14,12 @@ export default function TranscationsPage() {
         </div>
       </section>
       <section>
-        <button className="btn btn-primary">New Transcation</button>
+        <Link
+          href="/"
+          className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"
+        >
+          New Transcation
+        </Link>
       </section>
       <AllTranscations />
     </main>
