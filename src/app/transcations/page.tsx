@@ -21,7 +21,7 @@ export default function TranscationsPage() {
           New Transcation
         </Link>
       </section>
-      <section className="min-h-screen px-4 text-gray-600 antialiased">
+      <section className="min-h-screen px-0 text-gray-600 antialiased">
         <div className="flex h-full flex-col justify-center py-6">
           <div className="mx-auto w-full max-w-2xl rounded-lg border border-gray-200 bg-white py-6 shadow-lg">
             <header className="border-b border-gray-100 px-5">
