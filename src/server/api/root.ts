@@ -1,5 +1,6 @@
 import { createCallerFactory, createTRPCRouter } from "@/server/api/trpc";
 import { transcationRouter } from "./routers/transcation";
+import { itemRouter } from "./routers/item";
 
 /**
  * This is the primary router for your server.
@@ -8,6 +9,7 @@ import { transcationRouter } from "./routers/transcation";
  */
 export const appRouter = createTRPCRouter({
   transcation: transcationRouter,
+  shoppingItem: itemRouter,
 });
 
 // export type definition of API
