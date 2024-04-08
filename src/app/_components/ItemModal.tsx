@@ -1,7 +1,7 @@
 "use client";
 
 import { type ShoppingItem } from "@prisma/client";
-import { type Dispatch, type FC, type SetStateAction, useState } from "react";
+import { type Dispatch, type FC, type SetStateAction } from "react";
 
 interface ItemModalProps {
   setModalOpen: Dispatch<SetStateAction<boolean>>;
@@ -9,7 +9,7 @@ interface ItemModalProps {
 }
 
 const ItemModal: FC<ItemModalProps> = ({}) => {
-  const [input, setInput] = useState<string>("");
+  // const [input, setInput] = useState<string>("");
   return (
     <div className="absolute inset-0 flex justify-center bg-black/75">
       <div className="space-y-4 p-3">
