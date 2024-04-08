@@ -22,11 +22,9 @@ export default async function ShoppingList() {
           </button>
         </div>
 
-        <ul className="mt-4 list-disc">
+        <ul className="pl-5 list-disc py-5">
           {shoppingItem.map((item) => (
-            <li key={item.id} className="flex items-center justify-between">
-              <span>{item.name}</span>
-            </li>
+            <li key={item.id}>{item.name}</li>
           ))}
         </ul>
         <CreateShoppingItem />
