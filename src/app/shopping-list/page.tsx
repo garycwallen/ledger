@@ -22,7 +22,7 @@ export default async function ShoppingList() {
           </button>
         </div>
 
-        <ul className="mt-4">
+        <ul className="mt-4 list-disc">
           {shoppingItem.map((item) => (
             <li key={item.id} className="flex items-center justify-between">
               <span>{item.name}</span>
