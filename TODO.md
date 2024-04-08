@@ -1,4 +1,6 @@
 ### TODO
+1. [ ] Fix Transactions by name with spaces...
+1. [ ] Add sum for all transcations
 1. [ ] Re-enable strictness
     - Solve the Avatar img/string issue
 1. [ ] Fix scrolling on all transcations page

@@ -27,6 +27,16 @@ export const transcationRouter = createTRPCRouter({
     });
   }),
 
+  // Return Transcation by Location
+  getByLocation: protectedProcedure
+    .input(z.object({ location: z.string() }))
+    .query(({ ctx, input }) => {
+      return ctx.db.transcation.findMany({
+        orderBy: { createdAt: "desc" },
+        where: { location: input.location },
+      });
+    }),
+
   // Return Latest Transcation
   getLatest: protectedProcedure.query(({ ctx }) => {
     return ctx.db.transcation.findFirst({

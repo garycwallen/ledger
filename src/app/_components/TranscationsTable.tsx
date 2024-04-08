@@ -1,5 +1,6 @@
 import { api } from "@/trpc/server";
 import { currencyFormatter } from "@/lib/utils";
+import Link from "next/link";
 
 export default async function TranscationsTable() {
   const transcationscolumns = ["Amount", "Location", "Date"];
@@ -34,7 +35,11 @@ export default async function TranscationsTable() {
                 </div>
               )}
             </td>
-            <td className="whitespace-nowrap p-2">{transcation.location}</td>
+            <td className="whitespace-nowrap p-2">
+              <Link href={`transcations/${transcation.location}`}>
+                {transcation.location}
+              </Link>
+            </td>
             <td className="whitespace-nowrap p-2">
               {transcation.createdAt.toLocaleDateString()}
             </td>
