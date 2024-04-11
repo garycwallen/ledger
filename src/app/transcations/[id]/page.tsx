@@ -13,12 +13,12 @@ export default async function Transaction({
   const { id: location } = params;
 
   // Call the getByLocation function with the location parameter
-  const transcationsByLocation = await api.transcation.getByLocation({
+  const transactionsByLocation = await api.transcation.getByLocation({
     location,
   });
 
   // Total balance from location
-  const totalBalanceByLocation = transcationsByLocation.reduce((sum, total) => {
+  const totalBalanceByLocation = transactionsByLocation.reduce((sum, total) => {
     if (total.type === "Income") {
       return sum + total.amount;
     } else if (total.type === "Expense") {
@@ -28,7 +28,7 @@ export default async function Transaction({
     }
   }, 0);
 
-  const transcationscolumns = ["Amount", "Location", "Date"];
+  const transactionsColumns = ["Amount", "Location", "Date"];
 
   return (
     <main className="container mx-auto max-w-2xl px-6">
@@ -61,7 +61,7 @@ export default async function Transaction({
                 <table className="w-full table-auto">
                   <thead className="bg-gray-200 text-xs font-semibold uppercase text-gray-400">
                     <tr>
-                      {transcationscolumns.map((columns) => (
+                      {transactionsColumns.map((columns) => (
                         <th className="whitespace-nowrap p-2" key="id">
                           <div className="text-left font-semibold">
                             {columns}
@@ -71,27 +71,27 @@ export default async function Transaction({
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100 text-sm">
-                    {transcationsByLocation?.map((transcation) => (
+                    {transactionsByLocation?.map((transaction) => (
                       <tr
                         className="hover:bg-gray-100 dark:hover:bg-gray-200"
-                        key={transcation.id}
+                        key={transaction.id}
                       >
                         <td className="whitespace-nowrap p-2">
-                          {transcation.type === "Expense" ? (
+                          {transaction.type === "Expense" ? (
                             <div className="text-left font-medium text-red-500">
-                              {currencyFormatter(transcation.amount)}
+                              {currencyFormatter(transaction.amount)}
                             </div>
                           ) : (
                             <div className="text-left font-medium text-green-500">
-                              {currencyFormatter(transcation.amount)}
+                              {currencyFormatter(transaction.amount)}
                             </div>
                           )}
                         </td>
                         <td className="whitespace-nowrap p-2">
-                          {transcation.location}
+                          {transaction.location}
                         </td>
                         <td className="whitespace-nowrap p-2">
-                          {transcation.createdAt.toLocaleDateString()}
+                          {transaction.createdAt.toLocaleDateString()}
                         </td>
                       </tr>
                     ))}
