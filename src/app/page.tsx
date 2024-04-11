@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getServerAuthSession } from "@/server/auth";
 import LatestTranscation from "@/app/_components/LatestTranscation";
 import TotalBalance from "@/app/_components/TotalBalance";
-import CreateTranscation from "@/app/_components/CreateTranscation";
+import CreateTransaction from "@/app/_components/CreateTransaction";
 
 export default async function Home() {
   const session = await getServerAuthSession();
@@ -22,7 +22,7 @@ export default async function Home() {
                   View All Transactions
                 </Link>
                 <LatestTranscation />
-                <CreateTranscation />
+                <CreateTransaction />
               </>
             ) : (
               <>
