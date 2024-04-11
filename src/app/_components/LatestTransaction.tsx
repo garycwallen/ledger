@@ -2,7 +2,7 @@ import { getServerAuthSession } from "@/server/auth";
 import { api } from "@/trpc/server";
 import { currencyFormatter } from "@/lib/utils";
 
-export default async function LatestTranscation() {
+export default async function LatestTransaction() {
   const session = await getServerAuthSession();
   if (!session?.user) return null;
 
