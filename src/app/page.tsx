@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { getServerAuthSession } from "@/server/auth";
-import LatestTranscation from "@/app/_components/LatestTransaction";
+import LatestTransaction from "@/app/_components/LatestTransaction";
 import TotalBalance from "@/app/_components/TotalBalance";
 import CreateTransaction from "@/app/_components/CreateTransaction";
 
@@ -21,7 +21,7 @@ export default async function Home() {
                 >
                   View All Transactions
                 </Link>
-                <LatestTranscation />
+                <LatestTransaction />
                 <CreateTransaction />
               </>
             ) : (
