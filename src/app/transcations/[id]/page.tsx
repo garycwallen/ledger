@@ -53,7 +53,7 @@ export default async function Transaction({
         <div className="flex h-full flex-col justify-center py-6">
           <div className="mx-auto w-full max-w-2xl rounded-lg border border-gray-200 bg-white py-6 shadow-lg">
             <header className="border-b border-gray-100 px-5">
-              <h2 className="font-semibold text-gray-800">{params.id}{" "} Transcations</h2>
+              <h2 className="font-semibold text-gray-800">{params.id}{" "} Transactions</h2>
               <h2 className="gap-2">{currencyFormatter(totalBalanceByLocation)}</h2>
             </header>
             <div className="p-3">
