@@ -2,7 +2,7 @@ import Link from "next/link";
 import TotalBalance from "@/app/_components/TotalBalance";
 import TranscationsTable from "@/app/_components/TranscationsTable";
 
-export default function TranscationsPage() {
+export default function TransactionsPage() {
   return (
     <main className="container mx-auto max-w-2xl px-6">
       <section>

@@ -4,7 +4,7 @@ import TotalBalance from "@/app/_components/TotalBalance";
 import { currencyFormatter } from "@/lib/utils";
 import { api } from "@/trpc/server";
 
-export default async function Transcation({
+export default async function Transaction({
   params,
 }: {
   params: { id: string };
