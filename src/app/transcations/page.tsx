@@ -1,6 +1,6 @@
 import Link from "next/link";
 import TotalBalance from "@/app/_components/TotalBalance";
-import TranscationsTable from "@/app/_components/TranscationsTable";
+import TransactionsTable from "@/app/_components/TransactionsTable";
 
 export default function TransactionsPage() {
   return (
@@ -18,7 +18,7 @@ export default function TransactionsPage() {
           href="/"
           className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"
         >
-          New Transcation
+          New Transaction
         </Link>
       </section>
       <section className="min-h-screen px-0 text-gray-600 antialiased">
@@ -29,7 +29,7 @@ export default function TransactionsPage() {
             </header>
             <div className="p-3">
               <div className="overflow-x-auto border">
-                <TranscationsTable />
+                <TransactionsTable />
               </div>
             </div>
           </div>

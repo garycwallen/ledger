@@ -2,7 +2,7 @@ import { api } from "@/trpc/server";
 import { currencyFormatter } from "@/lib/utils";
 import Link from "next/link";
 
-export default async function TranscationsTable() {
+export default async function TransactionsTable() {
   const transcationscolumns = ["Amount", "Location", "Date"];
 
   const allTransactions = await api.transcation.getAll();

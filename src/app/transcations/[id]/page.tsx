@@ -43,7 +43,7 @@ export default async function Transaction({
       </section>
       <section>
         <Link
-          href="/transcations"
+          href="/transactions"
           className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"
         >
           Go Back
