@@ -14,7 +14,7 @@ export default async function TransactionsTable() {
   ): Transaction => {
     return {
       id: dbTransaction.id,
-      type: dbTransaction.type as "Expense" | "Income", // Type assertion since we know these are the only valid values
+      type: dbTransaction.type as "Expense" | "Income",
       amount: dbTransaction.amount,
       location: dbTransaction.location,
       createdAt: dbTransaction.createdAt,
