@@ -44,6 +44,19 @@ export const transcationRouter = createTRPCRouter({
     });
   }),
 
+  // Add delete procedure
+  delete: protectedProcedure
+    .input(z.object({ id: z.string() }))
+    .mutation(async ({ ctx, input }) => {
+      return ctx.db.transcation.delete({
+        where: {
+          id: input.id,
+          // TODO: Add back later
+          // createdBy: { id: ctx.session.user.id }, // Ensure user can only delete their own transactions
+        },
+      });
+    }),
+
   getSecretMessage: protectedProcedure.query(() => {
     return "you can now see this secret message!";
   }),
