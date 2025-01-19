@@ -1,9 +1,10 @@
+
+import Link from "next/link";
 import TotalBalance from "@/app/_components/TotalBalance";
 import { currencyFormatter } from "@/lib/utils";
 import { api } from "@/trpc/server";
-import Link from "next/link";
 
-export default async function Transcation({
+export default async function Transaction({
   params,
 }: {
   params: { id: string };
@@ -12,11 +13,22 @@ export default async function Transcation({
   const { id: location } = params;
 
   // Call the getByLocation function with the location parameter
-  const transcationsByLocation = await api.transcation.getByLocation({
+  const transactionsByLocation = await api.transcation.getByLocation({
     location,
   });
 
-  const transcationscolumns = ["Amount", "Location", "Date"];
+  // Total balance from location
+  const totalBalanceByLocation = transactionsByLocation.reduce((sum, total) => {
+    if (total.type === "Income") {
+      return sum + total.amount;
+    } else if (total.type === "Expense") {
+      return sum - total.amount;
+    } else {
+      return sum;
+    }
+  }, 0);
+
+  const transactionsColumns = ["Amount", "Location", "Date"];
 
   return (
     <main className="container mx-auto max-w-2xl px-6">
@@ -31,7 +43,7 @@ export default async function Transcation({
       </section>
       <section>
         <Link
-          href="/transcations"
+          href="/transactions"
           className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"
         >
           Go Back
@@ -41,14 +53,15 @@ export default async function Transcation({
         <div className="flex h-full flex-col justify-center py-6">
           <div className="mx-auto w-full max-w-2xl rounded-lg border border-gray-200 bg-white py-6 shadow-lg">
             <header className="border-b border-gray-100 px-5">
-              <h2 className="font-semibold text-gray-800">All Transcations</h2>
+              <h2 className="font-semibold text-gray-800">{params.id}{" "} Transactions</h2>
+              <h2 className="gap-2">{currencyFormatter(totalBalanceByLocation)}</h2>
             </header>
             <div className="p-3">
               <div className="overflow-x-auto border">
                 <table className="w-full table-auto">
                   <thead className="bg-gray-200 text-xs font-semibold uppercase text-gray-400">
                     <tr>
-                      {transcationscolumns.map((columns) => (
+                      {transactionsColumns.map((columns) => (
                         <th className="whitespace-nowrap p-2" key="id">
                           <div className="text-left font-semibold">
                             {columns}
@@ -58,27 +71,27 @@ export default async function Transcation({
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-gray-100 text-sm">
-                    {transcationsByLocation?.map((transcation) => (
+                    {transactionsByLocation?.map((transaction) => (
                       <tr
                         className="hover:bg-gray-100 dark:hover:bg-gray-200"
-                        key={transcation.id}
+                        key={transaction.id}
                       >
                         <td className="whitespace-nowrap p-2">
-                          {transcation.type === "Expense" ? (
+                          {transaction.type === "Expense" ? (
                             <div className="text-left font-medium text-red-500">
-                              {currencyFormatter(transcation.amount)}
+                              {currencyFormatter(transaction.amount)}
                             </div>
                           ) : (
                             <div className="text-left font-medium text-green-500">
-                              {currencyFormatter(transcation.amount)}
+                              {currencyFormatter(transaction.amount)}
                             </div>
                           )}
                         </td>
                         <td className="whitespace-nowrap p-2">
-                          {transcation.location}
+                          {transaction.location}
                         </td>
                         <td className="whitespace-nowrap p-2">
-                          {transcation.createdAt.toLocaleDateString()}
+                          {transaction.createdAt.toLocaleDateString()}
                         </td>
                       </tr>
                     ))}

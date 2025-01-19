@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { getServerAuthSession } from "@/server/auth";
-import LatestTranscation from "@/app/_components/LatestTranscation";
+import LatestTransaction from "@/app/_components/LatestTransaction";
 import TotalBalance from "@/app/_components/TotalBalance";
-import CreateTranscation from "@/app/_components/CreateTranscation";
+import CreateTransaction from "@/app/_components/CreateTransaction";
 
 export default async function Home() {
   const session = await getServerAuthSession();
@@ -16,13 +16,13 @@ export default async function Home() {
             {session ? (
               <>
                 <Link
-                  href="/transcations"
+                  href="/transactions"
                   className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"
                 >
-                  View All Transcations
+                  View All Transactions
                 </Link>
-                <LatestTranscation />
-                <CreateTranscation />
+                <LatestTransaction />
+                <CreateTransaction />
               </>
             ) : (
               <>

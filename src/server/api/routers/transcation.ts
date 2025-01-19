@@ -2,7 +2,7 @@ import { z } from "zod";
 import { createTRPCRouter, protectedProcedure } from "@/server/api/trpc";
 
 export const transcationRouter = createTRPCRouter({
-  // Create new Transcation
+  // Create new Transaction
   create: protectedProcedure
     .input(z.object({ type: z.string() }))
     .input(z.object({ amount: z.coerce.number() }))
@@ -20,14 +20,14 @@ export const transcationRouter = createTRPCRouter({
       });
     }),
 
-  // Get All Transcations
+  // Get All Transactions
   getAll: protectedProcedure.query(({ ctx }) => {
     return ctx.db.transcation.findMany({
       orderBy: { createdAt: "desc" },
     });
   }),
 
-  // Return Transcation by Location
+  // Return Transactions by Location
   getByLocation: protectedProcedure
     .input(z.object({ location: z.string() }))
     .query(({ ctx, input }) => {
@@ -37,7 +37,7 @@ export const transcationRouter = createTRPCRouter({
       });
     }),
 
-  // Return Latest Transcation
+  // Return Latest Transaction
   getLatest: protectedProcedure.query(({ ctx }) => {
     return ctx.db.transcation.findFirst({
       orderBy: { id: "desc" },

@@ -7,7 +7,7 @@ import DatePicker from "react-datepicker";
 import { api } from "@/trpc/react";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function CreateTranscation() {
+export default function CreateTransaction() {
   const router = useRouter();
   const [type, setType] = useState("Expense");
   const [amount, setAmount] = useState(0);

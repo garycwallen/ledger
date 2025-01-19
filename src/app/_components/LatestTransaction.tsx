@@ -2,25 +2,25 @@ import { getServerAuthSession } from "@/server/auth";
 import { api } from "@/trpc/server";
 import { currencyFormatter } from "@/lib/utils";
 
-export default async function LatestTranscation() {
+export default async function LatestTransaction() {
   const session = await getServerAuthSession();
   if (!session?.user) return null;
 
-  const latestTranscation = await api.transcation.getLatest();
+  const latestTransaction = await api.transcation.getLatest();
 
   return (
     <div className="w-full max-w-xs">
-      {latestTranscation ? (
+      {latestTransaction ? (
         <p>
           Most recent transaction:{" "}
           <span
-            className={`text-${latestTranscation.type === "Expense" ? "red" : "green"}-500`}
+            className={`text-${latestTransaction.type === "Expense" ? "red" : "green"}-500`}
           >
-            {latestTranscation.type}
+            {latestTransaction.type}
           </span>{" "}
-          {currencyFormatter(latestTranscation.amount)} at{" "}
-          {latestTranscation.location} on{" "}
-          {new Date(latestTranscation.createdAt).toLocaleDateString()}
+          {currencyFormatter(latestTransaction.amount)} at{" "}
+          {latestTransaction.location} on{" "}
+          {new Date(latestTransaction.createdAt).toLocaleDateString()}
         </p>
       ) : (
         <p>You have no expenses yet.</p>
