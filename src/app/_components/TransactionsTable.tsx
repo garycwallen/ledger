@@ -52,7 +52,7 @@ export default async function TransactionsTable() {
                 )}
               </td>
               <td className="whitespace-nowrap p-2">
-                <Link href={`transcations/${transformedTransaction.location}`}>
+                <Link href={`transactions/${transformedTransaction.location}`}>
                   {transformedTransaction.location}
                 </Link>
               </td>
