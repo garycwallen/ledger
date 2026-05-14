@@ -9,8 +9,7 @@ export default async function Transaction({
 }: {
   params: { id: string };
 }) {
-  // Extract location from params
-  const { id: location } = params;
+  const location = decodeURIComponent(params.id);
 
   // Call the getByLocation function with the location parameter
   const transactionsByLocation = await api.transcation.getByLocation({
@@ -36,7 +35,7 @@ export default async function Transaction({
         <TotalBalance />
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
           <h1 className="text-5xl font-extrabold tracking-tight sm:text-[4rem]">
-            {params.id}{" "}
+            {location}{" "}
             <span className="text-[hsl(280,100%,70%)]">Transactions</span>
           </h1>
         </div>
@@ -53,7 +52,7 @@ export default async function Transaction({
         <div className="flex h-full flex-col justify-center py-6">
           <div className="mx-auto w-full max-w-2xl rounded-lg border border-gray-200 bg-white py-6 shadow-lg">
             <header className="border-b border-gray-100 px-5">
-              <h2 className="font-semibold text-gray-800">{params.id}{" "} Transactions</h2>
+              <h2 className="font-semibold text-gray-800">{location} Transactions</h2>
               <h2 className="gap-2">{currencyFormatter(totalBalanceByLocation)}</h2>
             </header>
             <div className="p-3">
