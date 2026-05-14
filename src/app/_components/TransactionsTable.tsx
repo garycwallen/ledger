@@ -1,6 +1,7 @@
 import { api } from "@/trpc/server";
 import { currencyFormatter } from "@/lib/utils";
 import DeleteTransaction from "./DeleteTransaction";
+import EditTransaction from "./EditTransaction";
 import Link from "next/link";
 import type { DatabaseTransaction, Transaction } from "./types";
 
@@ -60,7 +61,11 @@ export default async function TransactionsTable() {
                 {transformedTransaction.createdAt.toLocaleDateString()}
               </td>
               <td className="whitespace-nowrap p-2">
-                <DeleteTransaction transaction={transformedTransaction} />
+                <div className="flex items-center gap-1">
+                  <DeleteTransaction transaction={transformedTransaction} />
+                  <span className="text-gray-400">|</span>
+                  <EditTransaction transaction={transformedTransaction} />
+                </div>
               </td>
             </tr>
           );

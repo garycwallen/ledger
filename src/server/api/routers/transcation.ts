@@ -53,6 +53,25 @@ export const transcationRouter = createTRPCRouter({
     });
   }),
 
+  // Update existing transaction
+  update: protectedProcedure
+    .input(z.object({ id: z.string() }))
+    .input(z.object({ type: z.string() }))
+    .input(z.object({ amount: z.coerce.number() }))
+    .input(z.object({ location: z.string() }))
+    .input(z.object({ createdAt: z.coerce.date() }))
+    .mutation(async ({ ctx, input }) => {
+      return ctx.db.transcation.update({
+        where: { id: input.id },
+        data: {
+          type: input.type,
+          amount: input.amount,
+          location: input.location,
+          createdAt: input.createdAt,
+        },
+      });
+    }),
+
   // Add delete procedure
   delete: protectedProcedure
     .input(z.object({ id: z.string() }))
