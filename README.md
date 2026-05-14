@@ -2,6 +2,10 @@
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`, using MongoDB.
 
+## Getting Started
+1. Run `npm install` to install necessary dependencies
+1. Setup `.env.local` file
+
 ## Scripts
 * `npm run build`: Runs a local production build
 * `npm run dev`: Run local server

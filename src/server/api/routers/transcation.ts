@@ -21,10 +21,19 @@ export const transcationRouter = createTRPCRouter({
     }),
 
   // Get All Transactions
-  getAll: protectedProcedure.query(({ ctx }) => {
-    return ctx.db.transcation.findMany({
-      orderBy: { createdAt: "desc" },
-    });
+  getAll: protectedProcedure
+    .input(z.object({ skip: z.number().optional(), take: z.number().optional() }).optional())
+    .query(({ ctx, input }) => {
+      return ctx.db.transcation.findMany({
+        orderBy: { createdAt: "desc" },
+        skip: input?.skip,
+        take: input?.take,
+      });
+    }),
+
+  // Get total transaction count
+  getCount: protectedProcedure.query(({ ctx }) => {
+    return ctx.db.transcation.count();
   }),
 
   // Return Transactions by Location

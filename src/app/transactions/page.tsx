@@ -1,13 +1,24 @@
 import Link from "next/link";
 import TotalBalance from "@/app/_components/TotalBalance";
-import TransactionsTable from "@/app/_components/TransactionsTable";
+import TransactionsTableWrapper from "@/app/_components/TransactionsTableWrapper";
 
-export default function TransactionsPage() {
+export default async function TransactionsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ pageSize?: string }>;
+}) {
+  const params = await searchParams;
+  const pageSizeParam = params.pageSize;
+  const pageSize =
+    pageSizeParam === "all"
+      ? undefined
+      : parseInt(pageSizeParam ?? "100") || 100;
+
   return (
     <main className="container mx-auto max-w-2xl px-6">
       <section>
         <TotalBalance />
-        <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
+        <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
           <h1 className="text-5xl font-extrabold tracking-tight sm:text-[4rem]">
             All <span className="text-[hsl(280,100%,70%)]">Transactions</span>
           </h1>
@@ -23,16 +34,7 @@ export default function TransactionsPage() {
       </section>
       <section className="min-h-screen px-0 text-gray-600 antialiased">
         <div className="flex h-full flex-col justify-center py-6">
-          <div className="mx-auto w-full max-w-2xl rounded-lg border border-gray-200 bg-white py-6 shadow-lg">
-            <header className="border-b border-gray-100 px-5">
-              <h2 className="font-semibold text-gray-800">All Transactions</h2>
-            </header>
-            <div className="p-3">
-              <div className="overflow-x-auto border">
-                <TransactionsTable />
-              </div>
-            </div>
-          </div>
+          <TransactionsTableWrapper pageSize={pageSize} />
         </div>
       </section>
     </main>
